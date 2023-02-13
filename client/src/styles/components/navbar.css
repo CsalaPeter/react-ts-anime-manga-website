@@ -1,0 +1,12 @@
+nav {
+  border-bottom: 2px solid rgba(115, 130, 140, 0.2);
+}
+
+.left {
+  padding-left: 3rem;
+}
+
+.right {
+  padding-right: 3rem;
+  cursor: pointer;
+}
