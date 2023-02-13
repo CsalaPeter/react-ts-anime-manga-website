@@ -1,0 +1,21 @@
+.card {
+  max-width: 350px;
+}
+
+header {
+  text-align: center;
+}
+
+footer {
+  text-align: end;
+}
+
+footer::after {
+  content: url(../../../public/icons/star.svg);
+  padding-left: 5px;
+}
+
+.genres {
+  padding-top: 5px;
+  font-size: medium;
+}
