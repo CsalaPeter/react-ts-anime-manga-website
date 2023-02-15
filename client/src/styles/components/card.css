@@ -1,0 +1,31 @@
+header {
+  text-align: center;
+  height: 100px;
+  margin-bottom: 25px !important;
+}
+
+footer {
+  text-align: end;
+}
+
+footer::after {
+  content: url(/icons/star.svg);
+  padding-left: 5px;
+}
+
+.card {
+  max-width: 350px;
+}
+
+.cover {
+  height: 400px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.genres {
+  font-size: 15px;
+  text-align: center;
+  height: 60px;
+}

@@ -1,5 +1,5 @@
 import { AnimeProps } from "../utils/Types";
-import "../styles/components/animeCard.css";
+import "../styles/components/card.css";
 
 export function AnimeCard({
   animeID,
@@ -11,11 +11,9 @@ export function AnimeCard({
   return (
     <div className="card">
       <article>
-        <header>
-          {animeName}
-          <div className="genres">{genres}</div>
-        </header>
-        <img src={imgPath} />
+        <header>{animeName}</header>
+        <div className="genres">{genres}</div>
+        <img className="cover" src={imgPath} />
         <footer>{ratings}</footer>
       </article>
     </div>
