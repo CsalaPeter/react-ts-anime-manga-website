@@ -3,8 +3,7 @@ import "@picocss/pico";
 import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/Home";
-import { Anime } from "./pages/Anime";
-import { Manga } from "./pages/Manga";
+import { ListMedia } from "./pages/ListMedia";
 
 function App() {
   return (
@@ -12,8 +11,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/anime" element={<Anime />} />
-        <Route path="/manga" element={<Manga />} />
+        <Route path="/all-anime" element={<ListMedia media="anime" />} />
+        <Route path="/all-manga" element={<ListMedia media="manga" />} />
       </Routes>
     </>
   );

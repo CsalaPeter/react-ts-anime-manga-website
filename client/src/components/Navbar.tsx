@@ -13,10 +13,10 @@ export function Navbar() {
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="/manga">Manga</a>
+          <a href="/all-manga">Manga</a>
         </li>
         <li>
-          <a href="/anime">Anime</a>
+          <a href="/all-anime">Anime</a>
         </li>
       </ul>
     </nav>

@@ -11,11 +11,11 @@ footer {
 }
 
 footer::after {
-  content: url(../../../public/icons/star.svg);
+  content: url(/icons/star.svg);
   padding-left: 5px;
 }
 
 .genres {
-  padding-top: 5px;
   font-size: medium;
+  text-align: center;
 }

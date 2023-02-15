@@ -1,5 +1,6 @@
 import { MangaProps } from "../utils/Types";
 import "../styles/components/mangaCard.css";
+import { Link } from "react-router-dom";
 
 export function MangaCard({
   mangaID,
@@ -12,9 +13,11 @@ export function MangaCard({
     <div className="card">
       <article>
         <header>
-          {mangaName}
-          <div className="genres">{genres}</div>
+          <Link to={"/manga"} state={{ mangaID }}>
+            {mangaName}
+          </Link>
         </header>
+        <div className="genres">{genres}</div>
         <img src={imgPath} />
         <footer>{ratings}</footer>
       </article>
