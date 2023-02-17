@@ -11,8 +11,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/all-anime" element={<ListMedia media="anime" />} />
-        <Route path="/all-manga" element={<ListMedia media="manga" />} />
+        <Route path="/all-anime" element={<ListMedia media="animeList" />} />
+        <Route path="/all-manga" element={<ListMedia media="mangaList" />} />
       </Routes>
     </>
   );

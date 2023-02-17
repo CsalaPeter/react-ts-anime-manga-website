@@ -3,7 +3,7 @@ import { Connection, Query } from "../config/db.config";
 
 const getAllManga = async (_request: Request, response: Response) => {
   let query =
-    "SELECT m.mangaID, mangaName, serialization, ratings, status, synopsis, imgPath, GROUP_CONCAT(g.genreName SEPARATOR ', ') as genres FROM manga m JOIN mangaGenre mg ON m.mangaID = mg.mangaID JOIN genres g ON mg.genreID = g.genreID GROUP BY m.mangaID;";
+    "SELECT m.mangaID as id, mangaName as name, serialization, ratings, status, synopsis, imgPath, GROUP_CONCAT(g.genreName SEPARATOR ', ') as genres FROM manga m JOIN mangaGenre mg ON m.mangaID = mg.mangaID JOIN genres g ON mg.genreID = g.genreID GROUP BY m.mangaID;";
 
   Connection()
     .then((connection) => {

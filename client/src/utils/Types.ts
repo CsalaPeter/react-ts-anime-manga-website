@@ -30,3 +30,11 @@ export type MangaProps = {
   synopsis: string;
   imgPath: string;
 };
+
+export type CardProps = {
+  id: string;
+  name: string;
+  genres: string;
+  imgPath: string;
+  ratings: number;
+};

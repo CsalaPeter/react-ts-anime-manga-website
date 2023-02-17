@@ -3,7 +3,7 @@ import { Connection, Query } from "../config/db.config";
 
 const getAllAnime = async (_request: Request, response: Response) => {
   let query =
-    "SELECT a.animeID, animeName, studio, ratings, DATE_FORMAT(started, '%Y.%m.%d') as started, DATE_FORMAT(finished, '%Y.%m.%d') as finished, status, synopsis, imgPath, GROUP_CONCAT(g.genreName SEPARATOR ', ') as genres FROM anime a " +
+    "SELECT a.animeID as id, animeName as name, studio, ratings, DATE_FORMAT(started, '%Y.%m.%d') as started, DATE_FORMAT(finished, '%Y.%m.%d') as finished, status, synopsis, imgPath, GROUP_CONCAT(g.genreName SEPARATOR ', ') as genres FROM anime a " +
     "JOIN animeGenre ag ON a.animeID = ag.animeID " +
     "JOIN genres g ON ag.genreID = g.genreID " +
     "GROUP BY a.animeID;";
