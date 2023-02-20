@@ -1,11 +1,16 @@
 import { CardProps } from "../utils/Types";
 import "../styles/components/card.css";
+import { Link } from "react-router-dom";
 
-export function Card({ name, genres, imgPath, ratings }: CardProps) {
+export function Card({ id, name, genres, imgPath, ratings }: CardProps) {
   return (
     <div className="card">
       <article>
-        <header>{name}</header>
+        <header>
+          <Link to={"/detView"} state={{ id }}>
+            {name}
+          </Link>
+        </header>
         <div className="genres">{genres}</div>
         <img className="cover" src={imgPath} />
         <footer>{ratings}</footer>
