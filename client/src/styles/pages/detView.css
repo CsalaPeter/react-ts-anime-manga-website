@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+}
+
+.leftSide {
+  width: 250px;
+}
+
+.rightSide {
+  width: 880px;
+}
+
+.mediaName {
+  text-align: center;
+}

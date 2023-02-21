@@ -1,13 +1,16 @@
 import { CardProps } from "../utils/Types";
 import "../styles/components/card.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export function Card({ id, name, genres, imgPath, ratings }: CardProps) {
+  let location = useLocation();
+  let media = location.pathname.slice(5);
+  console.log(media);
   return (
     <div className="card">
       <article>
         <header>
-          <Link to={"/detView"} state={{ id }}>
+          <Link to={"/detView"} state={{ id, media }}>
             {name}
           </Link>
         </header>
