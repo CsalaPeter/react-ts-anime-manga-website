@@ -5,7 +5,7 @@ export type AnimeProps = {
   genres: string;
   episodes: number;
   duration: number;
-  premierd: string;
+  premiered: string;
   started: Date;
   finished: Date;
   imgPath: string;
