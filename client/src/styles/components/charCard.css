@@ -1,0 +1,25 @@
+.charCardCont {
+  max-width: 880px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin: auto;
+  padding-block: 2rem;
+}
+
+.charImg {
+  width: 45px;
+}
+
+.charInfo {
+  float: right;
+  text-align: right;
+  font-size: medium;
+  margin-top: 12px;
+}
+
+.charCard {
+  background-color: hsl(207, 29%, 13%);
+  padding: 15px;
+  border-radius: 10px;
+}

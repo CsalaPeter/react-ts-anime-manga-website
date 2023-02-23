@@ -35,7 +35,7 @@ const getAllManga = async (_request: Request, response: Response) => {
 const getManga = async (request: Request, response: Response) => {
   let mangaID = request.params.id;
   let query =
-    "SELECT m.mangaID, mangaName, GROUP_CONCAT(g.genreName SEPARATOR ', ') as genres, serialization, volumes, chapters, ratings, status, synopsis, imgPath, DATE_FORMAT(started, '%Y.%m.%d') as started, DATE_FORMAT(finished, '%Y.%m.%d') as finished FROM manga m " +
+    "SELECT m.mangaID, mangaName, author, artist, GROUP_CONCAT(g.genreName SEPARATOR ', ') as genres, serialization, volumes, chapters, ratings, status, synopsis, imgPath, DATE_FORMAT(started, '%Y.%m.%d') as started, DATE_FORMAT(finished, '%Y.%m.%d') as finished FROM manga m " +
     "JOIN mangaGenre mg ON m.mangaID = mg.mangaID " +
     "JOIN genres g ON mg.genreID = g.genreID " +
     `WHERE m.mangaID = '${mangaID}'`;

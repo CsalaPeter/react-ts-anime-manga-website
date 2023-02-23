@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export type AnimeProps = {
   animeID: string;
   animeName: string;
@@ -37,4 +39,11 @@ export type CardProps = {
   genres: string;
   imgPath: string;
   ratings: number;
+};
+
+export type Character = {
+  charID: string;
+  charName: string;
+  charRole: string;
+  img: string;
 };
