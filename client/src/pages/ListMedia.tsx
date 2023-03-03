@@ -3,6 +3,8 @@ import "../styles/pages/mediaList.css";
 import { useEffect, useState } from "react";
 import { Card } from "../components/MediaCard";
 import { CardProps } from "../utils/Types";
+import ToTop from "../components/buttons/ToTop";
+import { SearchBar } from "../components/SearchBar";
 
 export function ListMedia({ media }: { media: string }) {
   const [mediaData, setData] = useState<CardProps[]>([]);
@@ -13,6 +15,7 @@ export function ListMedia({ media }: { media: string }) {
 
   return (
     <>
+      <SearchBar />
       <div className="mediaList">
         {mediaData.map((data) => (
           <div key={data.id}>
@@ -20,6 +23,7 @@ export function ListMedia({ media }: { media: string }) {
           </div>
         ))}
       </div>
+      <ToTop />
     </>
   );
 }

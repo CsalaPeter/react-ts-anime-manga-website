@@ -1,0 +1,11 @@
+.toTop {
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  bottom: 40px;
+  right: 40px;
+  z-index: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0;
+}

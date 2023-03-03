@@ -1,0 +1,38 @@
+.searchButton {
+  height: 50px;
+  width: 50px;
+  z-index: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.genreDropdown {
+  width: 300px;
+  border-bottom: 0;
+}
+
+.secondary {
+  text-align: center !important;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.searchBar {
+  display: grid;
+  width: 96vw;
+}
+
+details ul {
+  margin-left: 25px !important;
+  text-align: center;
+}
+
+.search {
+  width: 500px !important;
+  display: flex;
+}
+
+.searchTerm {
+  height: 50px !important;
+  width: 400px !important;
+}
