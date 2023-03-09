@@ -4,35 +4,35 @@
   z-index: 1;
   cursor: pointer;
   padding: 0;
-}
-
-.genreDropdown {
-  width: 300px;
-  border-bottom: 0;
-}
-
-.secondary {
-  text-align: center !important;
-  margin-top: 12px;
-  margin-left: 15px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .searchBar {
-  display: grid;
-  width: 96vw;
-}
-
-details ul {
-  margin-left: 25px !important;
-  text-align: center;
-}
-
-.search {
-  width: 500px !important;
   display: flex;
+  height: 50px;
+  padding-bottom: 20px;
+  width: 600px;
 }
 
 .searchTerm {
   height: 50px !important;
   width: 400px !important;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+button.searchButton,
+.searchTerm {
+  margin-top: 12px;
+}
+
+.searchContainer {
+  position: relative;
+  bottom: 12px;
+}
+
+.suggestionCard {
+  width: 400px;
+  text-align: center;
 }

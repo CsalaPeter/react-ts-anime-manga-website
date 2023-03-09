@@ -15,7 +15,6 @@ export function ListMedia({ media }: { media: string }) {
 
   return (
     <>
-      <SearchBar />
       <div className="mediaList">
         {mediaData.map((data) => (
           <div key={data.id}>

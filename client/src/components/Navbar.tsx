@@ -1,4 +1,5 @@
 import "../styles/components/navbar.css";
+import { SearchBar } from "./SearchBar";
 
 export function Navbar() {
   return (
@@ -6,6 +7,9 @@ export function Navbar() {
       <ul className="left">
         <li>
           <strong>OtakuDB</strong>
+        </li>
+        <li>
+          <SearchBar />
         </li>
       </ul>
       <ul className="right">
