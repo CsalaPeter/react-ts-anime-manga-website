@@ -3,19 +3,18 @@ import { Connection, Query } from "../config/db.config";
 
 const search = async (request: Request, response: Response) => {
   let searchTerm = request.params.search;
-  let query = `SELECT a.animeID as id, a.animeName as name, 'anime' as mediaType FROM anime a WHERE a.animeName LIKE '${searchTerm}%' UNION SELECT m.mangaID as id, m.mangaName as name, 'manga' as mediaType FROM manga m WHERE m.mangaName LIKE '${searchTerm}%'`;
+  let query = `SELECT a.animeID as id, a.animeName as name, a.imgPath, a.ratings, 'anime' as mediaType FROM anime a WHERE a.animeName LIKE '${searchTerm}%' UNION SELECT m.mangaID as id, m.mangaName as name, m.imgPath, m.ratings, 'manga' as mediaType FROM manga m WHERE m.mangaName LIKE '${searchTerm}%'`;
 
   Connection()
     .then((connection) => {
       Query(connection, query)
         .then((results) => {
           console.log(results);
-          console.log(request.params.search);
           return response.status(200).json(results);
         })
         .catch((error) => {
           console.log(error);
-          return response.status(200).json({
+          return response.status(400).json({
             message: error.message,
             error,
           });
@@ -26,7 +25,7 @@ const search = async (request: Request, response: Response) => {
     })
     .catch((error) => {
       console.log(error);
-      return response.status(200).json({
+      return response.status(500).json({
         message: error.message,
         error,
       });

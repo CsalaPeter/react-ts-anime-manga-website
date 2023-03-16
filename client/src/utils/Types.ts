@@ -39,6 +39,7 @@ export type CardProps = {
   genres: string;
   imgPath: string;
   ratings: number;
+  mediaType: string;
 };
 
 export type Character = {

@@ -1,35 +1,21 @@
-import { HiMagnifyingGlass } from "react-icons/hi2";
 import "../styles/components/searchBar.css";
-import { ChangeEvent, useMemo, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import debounce from "lodash.debounce";
 import axios from "axios";
+import { CardProps } from "../utils/Types";
 
 export function SearchBar() {
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<CardProps[]>([]);
+  const [hideSuggestions, setHideSuggestions] = useState(true);
 
   const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
-  };
-
-  const debouncedChangeHandler = useMemo(
-    () => debounce(changeHandler, 1000),
-    []
-  );
-
-  useEffect(() => {
-    return () => {
-      debouncedChangeHandler.cancel();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (query !== undefined && query.length > 2) {
+    const query = event.target.value;
+    if (query?.length >= 1) {
       axios
         .get(`api/search/${query}`)
         .then((response) => setResults(response.data));
     }
-  }, [query]);
+  };
 
   return (
     <>
@@ -39,18 +25,54 @@ export function SearchBar() {
             type="text"
             className="searchTerm"
             placeholder="Search..."
-            onChange={debouncedChangeHandler}
+            onChange={debounce(changeHandler, 500)}
+            onFocus={() => setHideSuggestions(false)}
+            onBlur={() => {
+              setTimeout(() => {
+                setHideSuggestions(true);
+              }, 300);
+            }}
           />
-          <button className="searchButton">
-            <HiMagnifyingGlass />
-          </button>
-        </div>
-        <div className="suggestions">
-          <div className="suggestionCard">
-            <article>
-              <header>Test</header>
-            </article>
-          </div>
+          <ul className="resList">
+            <div className="animeRes">
+              <h6>Anime</h6>
+              {results.map((result) => (
+                <>
+                  {result.mediaType === "anime" && (
+                    <div className="animeResCard">
+                      <img className="resImg" src={result.imgPath} />
+                      <div className="resInfo">
+                        <span>{result.name}</span>
+                        <br />
+                        <span className="resRateing">
+                          Rating: {result.ratings}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </>
+              ))}
+            </div>
+            <div className="mangaRes">
+              <h6>Manga</h6>
+              {results.map((result) => (
+                <>
+                  {result.mediaType === "manga" && (
+                    <div className="animeResCard">
+                      <img className="resImg" src={result.imgPath} />
+                      <div className="resInfo">
+                        <span>{result.name}</span>
+                        <br />
+                        <span className="resRateing">
+                          Rating: {result.ratings}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </>
+              ))}
+            </div>
+          </ul>
         </div>
       </div>
     </>

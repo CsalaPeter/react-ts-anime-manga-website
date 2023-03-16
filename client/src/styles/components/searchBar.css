@@ -1,25 +1,10 @@
-.searchButton {
-  height: 50px;
-  width: 50px;
-  z-index: 1;
-  cursor: pointer;
-  padding: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
 .searchBar {
-  display: flex;
   height: 50px;
-  padding-bottom: 20px;
-  width: 600px;
+  width: 400px;
 }
 
 .searchTerm {
   height: 50px !important;
-  width: 400px !important;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 button.searchButton,
@@ -32,7 +17,42 @@ button.searchButton,
   bottom: 12px;
 }
 
-.suggestionCard {
-  width: 400px;
+.resList h6 {
+  margin-bottom: 0px;
+  height: 35px;
   text-align: center;
+}
+
+.resList {
+  width: 400px;
+  max-height: 600px;
+  position: relative;
+  display: block !important;
+  background-color: hsl(207, 29%, 13%);
+  left: 10px;
+  margin-top: 0px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.resImg {
+  position: relative;
+  top: 15px;
+  left: 15px;
+  width: 80px;
+}
+
+.resInfo {
+  position: relative;
+  left: 105px;
+  bottom: 105px;
+}
+
+.resRateing {
+  font-size: medium;
+}
+
+.animeResCard,
+.mangaResCard {
+  height: 150px;
 }
