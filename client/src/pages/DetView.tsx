@@ -8,7 +8,7 @@ import { DetailHeader } from "../components/view_components/DetailHeader";
 import { Characters } from "../components/view_components/Characters";
 
 export function DetView() {
-  let { state } = useLocation();
+  const { state } = useLocation();
   const [mediaData, setMedia] = useState<(AnimeProps[] & MangaProps[]) | null>(
     null
   );

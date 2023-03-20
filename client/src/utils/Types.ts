@@ -1,5 +1,3 @@
-import { type } from "os";
-
 export type AnimeProps = {
   animeID: string;
   animeName: string;

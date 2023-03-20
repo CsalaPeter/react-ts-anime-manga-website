@@ -3,8 +3,8 @@ import "../styles/components/card.css";
 import { Link, useLocation } from "react-router-dom";
 
 export function Card({ id, name, genres, imgPath, ratings }: CardProps) {
-  let location = useLocation();
-  let media = location.pathname.slice(5);
+  const location = useLocation();
+  const media = location.pathname.slice(5);
   console.log(media);
   return (
     <div className="card">

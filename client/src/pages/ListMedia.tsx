@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Card } from "../components/MediaCard";
 import { CardProps } from "../utils/Types";
 import ToTop from "../components/buttons/ToTop";
-import { SearchBar } from "../components/SearchBar";
 
 export function ListMedia({ media }: { media: string }) {
   const [mediaData, setData] = useState<CardProps[]>([]);
