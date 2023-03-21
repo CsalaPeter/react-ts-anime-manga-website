@@ -46,6 +46,12 @@ button.searchButton,
   position: relative;
   left: 105px;
   bottom: 105px;
+  color: whitesmoke;
+}
+
+.resInfo span {
+  width: 300px;
+  display: inline-block;
 }
 
 .resRateing {
@@ -55,4 +61,15 @@ button.searchButton,
 .animeResCard,
 .mangaResCard {
   height: 150px;
+}
+
+h5 {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.animeResCard:hover,
+.mangaResCard:hover {
+  background-color: hsl(207, 29%, 30%);
+  cursor: pointer;
 }

@@ -1,8 +1,9 @@
+import axios from "axios";
+import debounce from "lodash.debounce";
+import { Link } from "react-router-dom";
+import { CardProps } from "../utils/Types";
 import "../styles/components/searchBar.css";
 import { ChangeEvent, useState } from "react";
-import debounce from "lodash.debounce";
-import axios from "axios";
-import { CardProps } from "../utils/Types";
 
 export function SearchBar() {
   const [results, setResults] = useState<CardProps[]>([]);
@@ -10,10 +11,12 @@ export function SearchBar() {
 
   const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
-    if (query?.length >= 1) {
+    if (query?.length >= 2) {
       axios
         .get(`api/search/${query}`)
         .then((response) => setResults(response.data));
+    } else {
+      setResults([]);
     }
   };
 
@@ -30,51 +33,55 @@ export function SearchBar() {
             onBlur={() => {
               setTimeout(() => {
                 setHideSuggestions(true);
-              }, 300);
+              }, 500);
             }}
           />
-          <ul className="resList">
-            <div className="animeRes">
-              <h6>Anime</h6>
-              {results.map((result) => (
-                <>
-                  {result.mediaType === "anime" && (
-                    <div className="animeResCard">
-                      <img className="resImg" src={result.imgPath} />
-                      <div className="resInfo">
-                        <span>{result.name}</span>
-                        <br />
-                        <span className="resRateing">
-                          Rating: {result.ratings}
-                        </span>
-                      </div>
-                    </div>
-                  )}
-                </>
-              ))}
-            </div>
-            <div className="mangaRes">
-              <h6>Manga</h6>
-              {results.map((result) => (
-                <>
-                  {result.mediaType === "manga" && (
-                    <div className="animeResCard">
-                      <img className="resImg" src={result.imgPath} />
-                      <div className="resInfo">
-                        <span>{result.name}</span>
-                        <br />
-                        <span className="resRateing">
-                          Rating: {result.ratings}
-                        </span>
-                      </div>
-                    </div>
-                  )}
-                </>
-              ))}
-            </div>
-          </ul>
+          {results.length != 0 && !hideSuggestions && (
+            <ul className="resList">
+              <div className="animeRes">
+                <h6>Anime</h6>
+                <ResultCard results={results} media="anime" />
+              </div>
+              <div className="mangaRes">
+                <h6>Manga</h6>
+                <ResultCard results={results} media="manga" />
+              </div>
+            </ul>
+          )}
         </div>
       </div>
+    </>
+  );
+}
+
+function ResultCard({
+  results,
+  media,
+}: {
+  results: CardProps[];
+  media: string;
+}) {
+  return (
+    <>
+      {results.map((result) => (
+        <>
+          {result.mediaType === media && (
+            <div className="animeResCard" id={result.id}>
+              <Link
+                to={"/detView"}
+                state={{ id: result.id, media: result.mediaType }}
+              >
+                <img className="resImg" src={result.imgPath} />
+                <div className="resInfo">
+                  <span>{result.name}</span>
+                  <br />
+                  <span className="resRateing">Rating: {result.ratings}</span>
+                </div>
+              </Link>
+            </div>
+          )}
+        </>
+      ))}
     </>
   );
 }
