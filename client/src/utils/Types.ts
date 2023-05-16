@@ -46,3 +46,9 @@ export type Character = {
   charRole: string;
   img: string;
 };
+
+export type News = {
+  newsID: string;
+  title: string;
+  imgPath: string;
+};

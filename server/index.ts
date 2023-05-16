@@ -3,10 +3,17 @@ import mangaRouter from "./routes/mangaRoutes";
 import animeRouter from "./routes/animeRoutes";
 import characterRouter from "./routes/characterRoutes";
 import searchRouter from "./routes/searchRoutes";
+import newsRouter from "./routes/newsRoute";
 
 const app: Express = express();
 const port = process.env.PORT || 3001;
-let routers = [mangaRouter, animeRouter, characterRouter, searchRouter];
+let routers = [
+  mangaRouter,
+  animeRouter,
+  characterRouter,
+  searchRouter,
+  newsRouter,
+];
 
 app.use(express.json());
 app.use("/api", ...routers);
