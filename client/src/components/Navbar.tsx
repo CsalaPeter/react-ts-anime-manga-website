@@ -22,6 +22,9 @@ export function Navbar() {
         <li>
           <a href="/all-anime">Anime</a>
         </li>
+        <li>
+          <a href="/new-media">New</a>
+        </li>
       </ul>
     </nav>
   );

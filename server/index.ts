@@ -4,6 +4,7 @@ import animeRouter from "./routes/animeRoutes";
 import characterRouter from "./routes/characterRoutes";
 import searchRouter from "./routes/searchRoutes";
 import newsRouter from "./routes/newsRoute";
+import miscRouter from "./routes/miscRoutes";
 
 const app: Express = express();
 const port = process.env.PORT || 3001;
@@ -13,6 +14,7 @@ let routers = [
   characterRouter,
   searchRouter,
   newsRouter,
+  miscRouter,
 ];
 
 app.use(express.json());

@@ -52,3 +52,8 @@ export type News = {
   title: string;
   imgPath: string;
 };
+
+export type Genres = {
+  genreID: number;
+  genreName: string;
+};
