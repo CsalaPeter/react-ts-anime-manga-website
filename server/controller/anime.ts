@@ -35,6 +35,41 @@ const getAllAnime = async (_request: Request, response: Response) => {
     });
 };
 
+const getSeasonalAnime = async (_request: Request, response: Response) => {
+  let query =
+    "SELECT a.animeID, animeName, studio, ratings, DATE_FORMAT(started, '%Y.%m.%d') as started, DATE_FORMAT(finished, '%Y.%m.%d') as finished, status, synopsis, imgPath, GROUP_CONCAT(g.genreName SEPARATOR ', ') as genres FROM anime a " +
+    "JOIN animeGenre ag ON a.animeID = ag.animeID " +
+    "JOIN genres g ON ag.genreID = g.genreID " +
+    "WHERE a.premiered = 'Spring 2023' " +
+    "GROUP BY a.animeID;";
+
+  Connection()
+    .then((connection) => {
+      Query(connection, query)
+        .then((results) => {
+          console.log(results);
+          return response.status(200).json(results);
+        })
+        .catch((error) => {
+          console.log(error);
+          return response.status(200).json({
+            message: error.message,
+            error,
+          });
+        })
+        .finally(() => {
+          console.log("Closing connection.");
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      return response.status(200).json({
+        message: error.message,
+        error,
+      });
+    });
+};
+
 const getAnime = async (request: Request, response: Response) => {
   let id = request.params.id;
   console.log(request.params);
@@ -71,4 +106,4 @@ const getAnime = async (request: Request, response: Response) => {
     });
 };
 
-export default { getAllAnime, getAnime };
+export default { getAllAnime, getAnime, getSeasonalAnime };

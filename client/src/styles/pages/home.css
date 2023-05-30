@@ -43,6 +43,21 @@
   height: 25vh;
 }
 
-.newsH {
+h2 {
   margin: 20px 20vw 0 20vw;
+}
+
+.seasonalAnime {
+  height: 500px;
+  margin-bottom: 20px;
+}
+
+.seasonalAnime header {
+  text-align: center;
+  height: 100px;
+  margin-bottom: 25px !important;
+}
+
+.seasonalAnime article {
+  margin: 0;
 }

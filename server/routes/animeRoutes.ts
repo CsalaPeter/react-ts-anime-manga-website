@@ -4,5 +4,6 @@ const animeRouter = express.Router();
 
 animeRouter.get("/animeList", anime.getAllAnime);
 animeRouter.get("/anime/:id", anime.getAnime);
+animeRouter.get("/seasonalAnime", anime.getSeasonalAnime);
 
 export default animeRouter;
