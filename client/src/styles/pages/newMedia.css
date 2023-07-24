@@ -1,0 +1,13 @@
+.newAnime,
+.newManga input:not(.genresInput) {
+  margin-bottom: 25px !important;
+}
+
+.genresCb {
+  margin-bottom: 25px;
+}
+
+.newMedia {
+  width: 60vw;
+  margin-inline: 20vw;
+}

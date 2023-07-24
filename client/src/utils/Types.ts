@@ -2,7 +2,7 @@ export type AnimeProps = {
   animeID: string;
   animeName: string;
   studio: string;
-  genres: string;
+  genres: string[];
   episodes: number;
   duration: number;
   premiered: string;
@@ -19,7 +19,7 @@ export type MangaProps = {
   mangaName: string;
   author: string;
   artist: string;
-  genres: string;
+  genres: string[];
   volumes: number;
   chapters: number;
   serialization: string;

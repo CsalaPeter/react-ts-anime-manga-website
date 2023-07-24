@@ -106,4 +106,40 @@ const getAnime = async (request: Request, response: Response) => {
     });
 };
 
+const newAnime = async (request: Request, response: Response) => {
+  let anime = request.params;
+  let query =
+    "INSERT INTO anime( animeID, animeName, studio, episodes, duration, premiered, started, finished, imgPath, status, synopsis) " +
+    "VALUES('A21', 'Test', 'test', '20', '20', 'Test', '2020-01-10', '2021-02-20', 'Test', 'Test', 'Test'); ";
+
+  let query2 =
+    "INSERT INTO animeGenre(animeID, genreID)" + "VALUES('A21', '4');";
+
+  Connection()
+    .then((connection) => {
+      Query(connection, query)
+        .then((results) => {
+          console.log(results);
+          return response.status(200).json(results);
+        })
+        .catch((error) => {
+          console.log(error);
+          return response.status(200).json({
+            message: error.message,
+            error,
+          });
+        })
+        .finally(() => {
+          console.log("Closing connection.");
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      return response.status(200).json({
+        message: error.message,
+        error,
+      });
+    });
+};
+
 export default { getAllAnime, getAnime, getSeasonalAnime };

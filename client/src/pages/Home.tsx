@@ -58,7 +58,7 @@ export function Home() {
                   {anime.animeName}
                 </Link>
               </header>
-              <img src={anime.imgPath} />
+              <img className="animeCover" src={anime.imgPath} />
             </article>
           </SwiperSlide>
         ))}
